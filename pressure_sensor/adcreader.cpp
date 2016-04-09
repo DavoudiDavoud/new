@@ -11,6 +11,11 @@
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
 #define MAX_SAMPLES 65536
+static void pabort(const char *s)
+{
+	perror(s);
+	abort();
+}
 
 ADCreader::ADCreader()
 {
@@ -240,8 +245,4 @@ void ADCreader::quit()
 	exit(0);
 }
 
-void ADCreader::pabort(const char *s)
-{
-        perror(s);
-        abort();
-}
+
